@@ -1,0 +1,32 @@
+{
+  "name": "appfordistributedteam",
+  "version": "1.0.0",
+  "description": "APP for distributed team work",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "React",
+    "Node"
+  ],
+  "author": "Artur Mukaev <artur.mukaev@mail.ru>",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.7",
+    "express": "^4.17.3",
+    "express-validator": "^6.14.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.4"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "kill-port": "^1.6.1",
+    "mongodb": "^4.4.1",
+    "nodemon": "^2.0.15"
+  }
+}

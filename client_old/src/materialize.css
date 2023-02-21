@@ -1,0 +1,5 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+html, body, #root, .container {
+    height: 100%;
+}

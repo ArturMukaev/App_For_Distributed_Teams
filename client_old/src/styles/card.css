@@ -1,0 +1,34 @@
+.card-feature {
+  width: 400px !important;
+  max-width: 400px !important;
+  min-width: 400px !important;
+  margin: 0 !important;
+  border: black 1px solid;
+}
+.card-feature .card-action {
+  background: #84ffff !important;
+}
+.card-feature span,
+.card-feature p {
+  color: black !important;
+}
+.card-task {
+  width: 300px !important;
+  max-width: 300px !important;
+  min-width: 300px !important;
+  margin-top: 30px !important;
+  border: black 1px solid;
+}
+.card-task p {
+  color: black !important;
+  text-align: left !important;
+}
+.card-task .card-title {
+  color: #292709 !important;
+  text-decoration: underline !important;
+}
+.card-task .card-title:hover {
+  cursor: pointer;
+  color: blue !important;
+}
+/*# sourceMappingURL=card.css.map */

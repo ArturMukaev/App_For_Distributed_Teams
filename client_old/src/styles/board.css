@@ -1,0 +1,22 @@
+th,
+td {
+  border-left: 6px solid green !important;
+}
+.other {
+  padding-left: 50px;
+  width: 400px !important;
+}
+.first {
+  width: 400px !important;
+  border: none !important;
+}
+.center {
+  display: flex !important;
+  justify-content: center !important;
+  /*Центрирование по горизонтали*/
+  font-size: 25px !important;
+}
+.center .sprint {
+  margin-right: 30px;
+}
+/*# sourceMappingURL=board.css.map */
