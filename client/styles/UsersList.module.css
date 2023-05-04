@@ -1,0 +1,25 @@
+.userList h1 {
+  font-size: 36px;
+  color: black;
+  text-align: center;
+  font-weight: 500;
+}
+.userList .table {
+  width: 70%;
+  margin: 0 auto;
+  padding: 0;
+}
+.userList .table .name {
+  max-width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.userList .table .role {
+  min-width: 170px;
+}
+.userList .table .last {
+  display: grid;
+  justify-content: center;
+}
+/*# sourceMappingURL=UsersList.module.css.map */

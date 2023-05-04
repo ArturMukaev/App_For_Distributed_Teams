@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
+import Container from "react-bootstrap/Container";
 
 const rotate = keyframes`
   0% {
@@ -10,10 +11,11 @@ const rotate = keyframes`
   }
 `;
 
-export const Loader = styled.div`
+const LoaderIcon = styled.div`
   display: inline-block;
   width: 80px;
   height: 80px;
+
   &:after {
     content: " ";
     display: block;
@@ -26,3 +28,8 @@ export const Loader = styled.div`
     animation: ${rotate} 1.2s linear infinite;
   }
 `;
+
+export const Loader = () =>
+    <Container fluid className="d-flex justify-content-center align-items-center">
+        <LoaderIcon/>
+    </Container>

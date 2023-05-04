@@ -1,0 +1,9 @@
+.main_form textarea {
+  resize: none;
+}
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+/*# sourceMappingURL=ProjectModal.module.css.map */

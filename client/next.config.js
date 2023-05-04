@@ -1,5 +1,9 @@
 module.exports = {
   webpack(config, options) {
+    config.watchOptions = {
+      poll: 1000,
+      aggregateTimeout: 300
+    };
     config.module.rules.push({
       loader: '@svgr/webpack',
       issuer: /\.[jt]sx?$/,
@@ -14,13 +18,13 @@ module.exports = {
                 removeViewBox: false
               }
             }
-          }],
+          }]
         },
-        titleProp: true,
+        titleProp: true
       },
-      test: /\.svg$/,
+      test: /\.svg$/
     });
 
     return config;
-  },
+  }
 };

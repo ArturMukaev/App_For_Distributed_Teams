@@ -1,0 +1,60 @@
+.backlog h1 {
+  font-size: 36px;
+  color: black;
+  text-align: center;
+  font-weight: 500;
+}
+.backlog .workspace {
+  width: 100%;
+  margin: 0;
+  display: grid;
+}
+.backlog .workspace .params {
+  background-color: #212529;
+  padding: 10px;
+  border-radius: 10px;
+}
+.backlog .workspace .params form {
+  display: grid;
+}
+.backlog .workspace .params form label {
+  color: white;
+}
+.backlog .workspace .params form .sprint {
+  width: 100px;
+}
+.backlog .workspace .params form .sprint input {
+  width: 100px;
+}
+.backlog .workspace .table {
+  margin: 0 auto;
+  padding: 0;
+}
+.backlog .workspace .table .name {
+  max-width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 800px) {
+  .workspace {
+    grid-template-columns: 50% 50%;
+  }
+}
+@media (min-width: 800px) {
+  .workspace {
+    grid-template-columns: 20% 80%;
+  }
+}
+.feature_form .close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.feature_form .numberInput {
+  max-width: 100px;
+}
+.feature_form textarea {
+  resize: none;
+}
+/*# sourceMappingURL=Backlog.module.css.map */

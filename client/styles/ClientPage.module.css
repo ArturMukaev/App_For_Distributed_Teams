@@ -1,0 +1,39 @@
+.card {
+  width: 60%;
+  margin: 20px auto;
+  color: white;
+}
+.card b {
+  font-size: 20px;
+  font-weight: 500;
+}
+.card .header {
+  display: grid;
+  grid-template-columns: auto 100px;
+  gap: 20px;
+}
+.card .header img {
+  width: 70px;
+  height: 70px;
+  align-self: center;
+}
+.card .body {
+  display: grid;
+}
+.card .body h3 {
+  font-size: 20px;
+}
+.card .body .progress {
+  width: 80%;
+  margin: 0 auto;
+}
+.card .body .epic {
+  color: #ffe474;
+}
+.card .body .feature {
+  color: #0dcaf0;
+}
+.card .body .bug {
+  color: #dc3545;
+}
+/*# sourceMappingURL=ClientPage.module.css.map */

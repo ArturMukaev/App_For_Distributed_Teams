@@ -1,5 +1,5 @@
-html,
-body {
+* {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: "Noto Sans KR", sans-serif;
@@ -10,7 +10,5 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-}
+
 

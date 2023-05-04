@@ -1,0 +1,31 @@
+.table {
+  th,td {
+    max-height: 50px;
+    max-width: 660px;
+  }
+}
+
+.description {
+  max-width: 600px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.name {
+  max-width: 250px;
+  display: grid;
+  grid-template-columns: 30px 220px;
+  gap: 10px;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+  div {
+    width: 220px;
+    margin: auto 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

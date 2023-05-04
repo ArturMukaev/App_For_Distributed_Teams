@@ -1,20 +1,38 @@
+import {toast} from "react-toastify";
+import {StateOfWI, taskType} from "../types/api/models";
+
 export const storageName = 'userData';
+export const storageProjectInfo = 'selectedProject';
+export const serverUrl = "http://77.223.98.128/:5000";
 
-export const stateMap = () : Map<number,string> => {
-    const mapa = new Map();
-    mapa.set(1, 'Предложено');
-    mapa.set(2, 'Активно');
-    mapa.set(3, 'Решено');
-    mapa.set(4, 'Закрыто');
-    return mapa;
-};
+export const notify = (text: string, error: boolean) => {
+    const options = {
+        position: "bottom-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+    };
+    if (!error) {
+        // @ts-ignore
+        toast.success(text, options);
+    } else {
+        // @ts-ignore
+        toast.error(text, options);
+    }
+}
 
-export const priorityMap = () : Map<number,string> => {
-    const mapa = new Map();
-    mapa.set(1, 'Низкий');
-    mapa.set(2, 'Средний');
-    mapa.set(3, 'Высокий');
-    return mapa;
-};
-
-export type buttonType = 'primary' | 'secondary' | 'success' | 'warning';
+export const sortTasks = (tasks: taskType[]) => {
+    return tasks.reduce((acc, value) => {
+        // @ts-ignore
+        acc[value.state].push(value);
+        return acc;
+    }, {
+        [StateOfWI.Proposed]: [] as taskType[],
+        [StateOfWI.Active]: [] as taskType[],
+        [StateOfWI.Resolved]: [] as taskType[],
+        [StateOfWI.Closed]: [] as taskType[],
+    });
+}

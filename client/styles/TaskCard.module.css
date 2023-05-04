@@ -1,0 +1,40 @@
+.card {
+  width: 250px;
+  height: 200px;
+  border: 3px solid black;
+  margin-bottom: 10px;
+}
+.card .body {
+  display: grid;
+  justify-items: center;
+}
+.card .body .title {
+  text-align: center;
+  max-width: 200px;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: underline;
+}
+.card .body .title:hover {
+  cursor: pointer;
+  color: blue;
+}
+.card .body .responsible {
+  width: 200px;
+}
+.card .body .state {
+  width: 200px;
+}
+.card .body .sprint {
+  font-size: 14px;
+  width: 200px;
+  margin-top: 5px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 80px 60px 50px;
+  gap: 5px;
+  justify-self: center;
+}
+/*# sourceMappingURL=TaskCard.module.css.map */

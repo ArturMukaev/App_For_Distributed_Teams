@@ -1,13 +1,18 @@
-const {Schema,model, Types} = require('mongoose')
+const {Schema,model, Types} = require('mongoose');
 
 const schema = new Schema({
-    team: {type: Types.ObjectId, ref: 'Team'},
+    epic: {type: Types.ObjectId, ref: 'Epic'},
     name: {type: String, required: true},
     description: {type: String, required: false},
-    state: {type: Number, required: true},
-    priority: {type: Number, required: true},
-    sprintNumber: {type: Number, required: true},
-    tasks: [{type: Types.ObjectId, ref: 'Task'}]
-})
+    type: {type: String, required: false},
+    state: {type: String, required: true},
+    priority: {type: String, required: true},
+    sprintNumber: {type: Number},
+    minMark: {type: Number},
+    mark: {type: Number},
+    maxMark: {type: Number},
+    tasks: [{type: Types.ObjectId, ref: 'Task'}],
+    project: {type: Types.ObjectId, ref: 'Project'}
+});
 
-module.exports = model('Feature',schema)
+module.exports = model('Feature',schema);

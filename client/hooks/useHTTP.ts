@@ -1,55 +1,59 @@
 import {useState, useCallback} from 'react'
-import {logout} from '../redux/authReducer'
-import {useDispatch} from "react-redux";
+import {logout} from '../redux/reducers/authReducer'
+import {useDispatch, useSelector} from "react-redux";
+import {notify} from "../helpers/helper";
+import {serverUrl} from "../helpers/helper";
+import {selectors} from "../redux/selectors";
 
 interface httpType {
     loading: boolean;
-    error: string | null;
-    clearError: () => void;
-    request: requestType;
+    request: (data: IFetchData<any>) => Promise<any>;
 }
 
-type requestType = (url: string, method: string, body?: any, headers?: any) => any;
+interface IFetchData<T> {
+    url: string;
+    method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+    headers?: HeadersInit;
+    body?: T;
+    file?: boolean;
+}
 
-export const useHttp = (): httpType => { // Позволяет взаимодействовать с сервером
+export const useHttp = (): httpType => {
 
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false);
+    const user = useSelector(selectors.user);
     const dispatch = useDispatch();
 
-    const request = useCallback(async (
-        url: string,
-        method: string = 'GET',
-        body: any = null,
-        headers: any = {}): Promise<any> => {
-        setLoading(true)
+    const request = useCallback(async ({url, method = 'GET', body, headers = {}, file = false}: IFetchData<any>): Promise<any> => {
+        setLoading(true);
         try {
-            if (body) {
+            headers = new Headers();
+            if (body && !file) {
                 body = JSON.stringify(body);
-                headers['Content-Type'] = 'application/json';
+                headers.set('Content-Type', 'application/json');
             }
-            const response = await fetch(url, {
-                method, body, headers
-            });
+            headers.set('Authorization', `Bearer ${user.token}`);
+            const response = await fetch(serverUrl + url, {method, body, headers});
             const data = await response.json();
 
             if (!response.ok) {
                 throw new Error(data.message || 'Что-то пошло не так');
+            } else {
+                data.message && notify(data.message.toString(), false);
             }
 
             setLoading(false);
             return data;
         } catch (e: any) {
             setLoading(false);
-            if (e.message.toString() === "Нет авторизации") {
+            const message = e.message.toString();
+            if (message === "Нет авторизации") {
                 dispatch(logout());
             }
-            setError(e.message);
-            throw e
+            notify(message, true);
+            throw e;
         }
-    }, []);
-    const clearError = useCallback(() => {
-        setError(null);
-    }, []);
-    return {loading, request, error, clearError}
+    }, [setLoading, dispatch, user]);
+
+    return {loading, request};
 }

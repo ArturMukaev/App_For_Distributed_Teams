@@ -8,6 +8,6 @@ export const StyledFooter = styled.footer`
   font-size: 16px;
   line-height: 20px;
   color: white;
-  background-color: #164d4d;
+  background-color: #150050;
   gap: 10px;
 `;
