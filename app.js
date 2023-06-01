@@ -21,11 +21,12 @@ app.use('/api/project',require('./routes/project.routes'));
 app.use('/api/epic',require('./routes/epic.routes'));
 app.use('/api/feature',require('./routes/features.routes'));
 app.use('/api/task',require('./routes/task.routes'));
+app.use('/api/risk',require('./routes/risk.routes'));
 app.use('/api/upload',require('./routes/upload.routes'));
 
 async function start() {
     try {
-        await mongoose.connect(MONGO_URI, {
+        await mongoose.connect("mongodb+srv://artur:Iriska4341@cluster0.k6qkf.mongodb.net/?retryWrites=true&w=majority", {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })

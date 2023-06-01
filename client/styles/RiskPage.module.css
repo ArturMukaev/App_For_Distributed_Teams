@@ -1,0 +1,16 @@
+.container {
+  margin: 20px;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+.container .longField {
+  max-width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.container .add {
+  margin: 30px auto;
+  width: 200px;
+}
+/*# sourceMappingURL=RiskPage.module.css.map */

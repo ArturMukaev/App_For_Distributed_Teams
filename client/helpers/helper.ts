@@ -36,3 +36,12 @@ export const sortTasks = (tasks: taskType[]) => {
         [StateOfWI.Closed]: [] as taskType[],
     });
 }
+
+export const getColorForRisk = (likelyHood: number, cons: number): string => {
+    const sum = likelyHood + cons;
+    if (sum < 6) {
+        return cons ===4 ? "#f7f13e" : "#3bcc62";
+    }
+    if (sum === 6 || (likelyHood === 5 && cons === 2) || (likelyHood === 4 && cons === 3)) return "f7f13e";
+    return "#f74a3e";
+}

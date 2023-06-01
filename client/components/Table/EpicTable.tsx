@@ -4,7 +4,7 @@ import {RoleInProject, workItemType, StateOfWI} from "../../types/api/models";
 import EpicModal from "../Modal/EpicModal";
 import {useSelector} from "react-redux";
 import {selectors} from "../../redux/selectors";
-import {notify} from "../../helpers/helper";
+import {useRouter} from "next/router";
 
 interface IProps {
     epics: workItemType[],
@@ -12,6 +12,7 @@ interface IProps {
 }
 
 const EpicTable = ({epics, styles}: IProps): JSX.Element => {
+    const router = useRouter();
 
     /** Selectors */
     const selectedProject = useSelector(selectors.selectedProject);
@@ -37,9 +38,9 @@ const EpicTable = ({epics, styles}: IProps): JSX.Element => {
         setModalOpen(true);
     }, []);
 
-    const handleOpenRisks = useCallback((): void => {
-        notify("Функционал в разработке", true);
-    }, []);
+    const handleOpenRisks = useCallback(async (id: string): Promise<void> => {
+        await router.push(`${router.asPath}/risk/${id}`);
+    }, [router]);
 
     const handleCreateEpic = useCallback((): void => {
         setFormData(initialData);
@@ -67,7 +68,8 @@ const EpicTable = ({epics, styles}: IProps): JSX.Element => {
                         <td>
                             {row.state}
                         </td>
-                        <td><Button variant="outline-light" size="sm" onClick={handleOpenRisks}>Открыть</Button></td>
+                        <td><Button variant="outline-light" size="sm"
+                                    onClick={() => handleOpenRisks(row.id)}>Открыть</Button></td>
                         <td><Button
                             variant="outline-light"
                             size="sm"

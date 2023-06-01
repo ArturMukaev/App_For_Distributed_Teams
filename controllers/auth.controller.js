@@ -29,7 +29,7 @@ module.exports = {
 
             res.status(201).json({message: 'Пользователь создан'})
         } catch (e) {
-            res.status(500).json({message: 'Что то пошло не так!'})
+            res.status(500).json({message: 'Что то пошло не так!  Обратитесь: artur.mukaev@mail.ru'})
         }
     },
     login: async (req, res) => {
@@ -58,7 +58,7 @@ module.exports = {
             res.json({token, userId: user.id, name: `${user.name} ${user.surname}`});
 
         } catch (e) {
-            res.status(500).json({message: 'Что то пошло не так!'});
+            res.status(500).json({message: 'Что то пошло не так!  Обратитесь: artur.mukaev@mail.ru'});
         }
     },
     getUsers: async (req, res) => {

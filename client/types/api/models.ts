@@ -45,6 +45,38 @@ export enum FeatureType {
     Feature = "Требование",
 }
 
+export enum LikelyHood {
+    Rare = "Мизерная",
+    Unlikely = "Маленькая",
+    Moderate = "Средняя",
+    Likely = "Высокая",
+    Certain = "Несомненная",
+}
+
+export const LikelyHoodMap = {
+    1: LikelyHood.Rare,
+    2: LikelyHood.Unlikely,
+    3: LikelyHood.Moderate,
+    4: LikelyHood.Likely,
+    5: LikelyHood.Certain,
+} as const;
+
+export enum Consequence {
+    Insignificant = "Незначительный",
+    Minor = "Небольшой",
+    Moderate = "Средний",
+    Major = "Высокий",
+    Catastrophic = "Катастрофический",
+}
+
+export const ConsequenceMap = {
+    1: Consequence.Insignificant,
+    2: Consequence.Minor,
+    3: Consequence.Moderate,
+    4: Consequence.Major,
+    5: Consequence.Catastrophic,
+} as const;
+
 export const PriorityMap = {
     [Priority.Low]: 0,
     [Priority.Medium]: 1,
@@ -102,4 +134,15 @@ export interface projectInfo {
     totalEpics?: number;
     totalFeatures?: number
     usersCount?: number;
+}
+
+export interface riskType {
+    id: string;
+    name: string;
+    description: string;
+    epic: string;
+    likelyHood: number;
+    consequence: number
+    solution: string;
+    responsible: string;
 }
