@@ -26,7 +26,7 @@ app.use('/api/upload',require('./routes/upload.routes'));
 
 async function start() {
     try {
-        await mongoose.connect("mongodb+srv://artur:Iriska4341@cluster0.k6qkf.mongodb.net/?retryWrites=true&w=majority", {
+        await mongoose.connect(MONGO_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })

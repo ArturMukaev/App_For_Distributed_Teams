@@ -3,7 +3,7 @@ import {StateOfWI, taskType} from "../types/api/models";
 
 export const storageName = 'userData';
 export const storageProjectInfo = 'selectedProject';
-export const serverUrl = "http://77.223.98.128/:5000";
+export const serverUrl = "http://77.223.98.128:5000";
 
 export const notify = (text: string, error: boolean) => {
     const options = {
