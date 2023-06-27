@@ -1,6 +1,6 @@
 Application For Managing IT Projects.
 
-  Baskend is written on Node.JS + Express
+  Backend is written on Node.JS + Express
 
   client_old - old version of frontend part. stack:
     - React, Redux, less.
